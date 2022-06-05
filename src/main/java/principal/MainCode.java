@@ -1,9 +1,12 @@
 package principal;
 
+import pantallas.PantallaActual;
+
+
 public class MainCode {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		PantallaActual ventana = new PantallaActual();
 
 	}
 
