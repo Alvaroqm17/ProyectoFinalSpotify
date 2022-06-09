@@ -13,6 +13,8 @@ public class PantallaActual extends JFrame {
 	public PantallaActual() {
 		this.setSize(800, 500);
 		this.setLocationRelativeTo(null); // Te pone la ventana en el centro de la pantalla
+		this.setIconImage(new ImageIcon("./imagenes/iconoprograma.jpg").getImage());
+		this.setTitle("Fantasy Music");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.pantallaActual = new PantallaInicial(this);
 		this.setContentPane(pantallaActual);
@@ -33,6 +35,9 @@ public class PantallaActual extends JFrame {
 			break;
 		case "atras":
 			this.pantallaActual = new PantallaInicial(this);
+			break;
+		case "crear":
+			this.pantallaActual = new PantallaCrearPlaylist(this);
 			break;
 
 		}

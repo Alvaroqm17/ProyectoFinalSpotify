@@ -16,6 +16,8 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import java.awt.CardLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
 
 public class PantallaLibreria extends JPanel {
 	private PantallaActual ventana;
@@ -30,7 +32,7 @@ public class PantallaLibreria extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel("Fantasy Music");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Cascadia Mono", Font.BOLD | Font.ITALIC, 24));
+		lblNewLabel.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 24));
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setBackground(Color.BLACK);
 		panelNorte.add(lblNewLabel, BorderLayout.NORTH);
@@ -57,13 +59,22 @@ public class PantallaLibreria extends JPanel {
 		JPanel panelSur = new JPanel();
 		panelSur.setBackground(Color.BLACK);
 		add(panelSur, BorderLayout.SOUTH);
-		panelSur.setLayout(new BoxLayout(panelSur, BoxLayout.X_AXIS));
+		GridBagLayout gbl_panelSur = new GridBagLayout();
+		gbl_panelSur.columnWidths = new int[]{81, 0};
+		gbl_panelSur.rowHeights = new int[]{21, 0};
+		gbl_panelSur.columnWeights = new double[]{0.0, Double.MIN_VALUE};
+		gbl_panelSur.rowWeights = new double[]{0.0, Double.MIN_VALUE};
+		panelSur.setLayout(gbl_panelSur);
 		
 		JButton volverAtras = new JButton("<");
-		volverAtras.setForeground(Color.WHITE);
-		volverAtras.setBackground(Color.BLACK);
+		volverAtras.setForeground(Color.BLACK);
+		volverAtras.setBackground(Color.WHITE);
 		volverAtras.setFont(new Font("Cascadia Mono", Font.PLAIN, 10));
-		panelSur.add(volverAtras);
+		GridBagConstraints gbc_volverAtras = new GridBagConstraints();
+		gbc_volverAtras.fill = GridBagConstraints.HORIZONTAL;
+		gbc_volverAtras.gridx = 0;
+		gbc_volverAtras.gridy = 0;
+		panelSur.add(volverAtras, gbc_volverAtras);
 		volverAtras.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
