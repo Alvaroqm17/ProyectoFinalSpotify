@@ -30,7 +30,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.ImageIcon;
 
-public class PantallaInicial extends JPanel implements ImplementarSonido {
+public class PantallaInicial extends JPanel  {
 	private PantallaActual ventana;
 	private AudioInputStream audioInputStream;
 	private Clip clip;
