@@ -4,8 +4,13 @@ public class Usuario extends ObjetoConNombre {
 	
 	private ListaCanciones playList;
 	private Biblioteca biblioteca;
+	private String contraseña;
 	
 	
+
+	public Usuario(String nombre, String contraseña) {
+		// TODO Auto-generated constructor stub
+	}
 
 	public ListaCanciones getPlayList() {
 		return playList;

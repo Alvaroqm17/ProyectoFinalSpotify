@@ -29,6 +29,10 @@ public class PantallaInicial extends JPanel {
 	private Clip clipMoey1;
 	private Clip clipMoey2;
 	private Clip clipMoey3;
+	private Clip clipJoji1;
+	private Clip clipJoji2;
+	private Clip clipJoji3;
+
 
 	public PantallaInicial(PantallaActual v) {
 		this.ventana = v;
@@ -107,8 +111,8 @@ public class PantallaInicial extends JPanel {
 		scrollPane.setViewportView(panel_2);
 		panel_2.setLayout(null);
 
-		JLabel letrasMoey = new JLabel("MOEY");
-		letrasMoey.setBounds(317, 30, 41, 23);
+		JLabel letrasMoey = new JLabel("MOAY");
+		letrasMoey.setBounds(303, 26, 55, 23);
 		letrasMoey.setFont(new Font("MV Boli", Font.BOLD, 14));
 		letrasMoey.setForeground(Color.WHITE);
 		panel_2.add(letrasMoey);
@@ -120,7 +124,7 @@ public class PantallaInicial extends JPanel {
 		});
 
 		JButton moey1Pausa = new JButton("||");
-		moey1Pausa.setBounds(17, 86, 41, 23);
+		moey1Pausa.setBounds(17, 75, 41, 23);
 		panel_2.add(moey1Pausa);
 		moey1Pausa.addMouseListener(new MouseAdapter() {
 			@Override
@@ -133,7 +137,7 @@ public class PantallaInicial extends JPanel {
 		});
 
 		JButton moey2Pausa = new JButton("||");
-		moey2Pausa.setBounds(252, 86, 41, 23);
+		moey2Pausa.setBounds(252, 75, 41, 23);
 		panel_2.add(moey2Pausa);
 		moey2Pausa.addMouseListener(new MouseAdapter() {
 			@Override
@@ -146,7 +150,7 @@ public class PantallaInicial extends JPanel {
 		});
 
 		JButton moey3Pausa = new JButton("||");
-		moey3Pausa.setBounds(491, 86, 41, 23);
+		moey3Pausa.setBounds(491, 75, 41, 23);
 		panel_2.add(moey3Pausa);
 		moey3Pausa.addMouseListener(new MouseAdapter() {
 			@Override
@@ -159,28 +163,28 @@ public class PantallaInicial extends JPanel {
 		});
 
 		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setBounds(68, 86, 65, 65);
+		lblNewLabel_4.setBounds(68, 75, 65, 65);
 		lblNewLabel_4.setIcon(new ImageIcon(
 				"D:\\Programacion\\ProyectoFinalSpotify\\ProyectoFinalSpotify\\imagenes\\cancionagustin.jpg"));
 		lblNewLabel_4.setForeground(Color.WHITE);
 		panel_2.add(lblNewLabel_4);
 
 		JLabel lblNewLabel_6 = new JLabel("\r\n");
-		lblNewLabel_6.setBounds(303, 86, 69, 64);
+		lblNewLabel_6.setBounds(303, 75, 69, 64);
 		lblNewLabel_6.setIcon(
 				new ImageIcon("D:\\Programacion\\ProyectoFinalSpotify\\ProyectoFinalSpotify\\imagenes\\monomoey.jpeg"));
 		lblNewLabel_6.setForeground(Color.WHITE);
 		panel_2.add(lblNewLabel_6);
 
 		JLabel lblNewLabel_5 = new JLabel("\r\n");
-		lblNewLabel_5.setBounds(542, 86, 69, 65);
+		lblNewLabel_5.setBounds(542, 75, 69, 65);
 		lblNewLabel_5.setIcon(new ImageIcon(
 				"D:\\Programacion\\ProyectoFinalSpotify\\ProyectoFinalSpotify\\imagenes\\mu\u00F1ecomoey.jpeg"));
 		lblNewLabel_5.setForeground(Color.WHITE);
 		panel_2.add(lblNewLabel_5);
 
 		JButton moey1Play = new JButton("\u25B6\uFE0E");
-		moey1Play.setBounds(10, 129, 53, 23);
+		moey1Play.setBounds(5, 109, 53, 23);
 		panel_2.add(moey1Play);
 		moey1Play.addMouseListener(new MouseAdapter() {
 			@Override
@@ -202,7 +206,7 @@ public class PantallaInicial extends JPanel {
 		});
 
 		JButton moey2Play = new JButton("\u25B6\uFE0E");
-		moey2Play.setBounds(240, 129, 53, 23);
+		moey2Play.setBounds(240, 109, 53, 23);
 		panel_2.add(moey2Play);
 		moey2Play.addMouseListener(new MouseAdapter() {
 			@Override
@@ -222,7 +226,7 @@ public class PantallaInicial extends JPanel {
 		});
 
 		JButton moey3Play = new JButton("\u25B6\uFE0E");
-		moey3Play.setBounds(479, 129, 53, 23);
+		moey3Play.setBounds(479, 109, 53, 23);
 		panel_2.add(moey3Play);
 		moey3Play.addMouseListener(new MouseAdapter() {
 			@Override
@@ -242,55 +246,183 @@ public class PantallaInicial extends JPanel {
 		});
 
 		JLabel letrasJoji = new JLabel("Joji");
-		letrasJoji.setBounds(325, 214, 25, 23);
+		letrasJoji.setBounds(313, 203, 33, 23);
 		letrasJoji.setFont(new Font("MV Boli", Font.BOLD, 14));
 		letrasJoji.setForeground(Color.WHITE);
 		panel_2.add(letrasJoji);
 
-		JButton btnNewButton_1 = new JButton("\u25B6\uFE0E");
-		btnNewButton_1.setBounds(10, 321, 53, 23);
-		panel_2.add(btnNewButton_1);
+		JButton jojiPlay1 = new JButton("\u25B6\uFE0E");
+		jojiPlay1.setBounds(5, 287, 53, 23);
+		panel_2.add(jojiPlay1);
+		jojiPlay1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					audioInputStream = AudioSystem.getAudioInputStream(new File("./sonidos/ew.wav"));
+					clipJoji1 = AudioSystem.getClip();
+					clipJoji1.open(audioInputStream);
+					clipJoji1.start();
+					System.out.println("aa");
 
-		JButton btnNewButton_4 = new JButton("\u25B6\uFE0E");
-		btnNewButton_4.setBounds(240, 321, 53, 23);
-		panel_2.add(btnNewButton_4);
+				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
-		JButton btnNewButton_4_1 = new JButton("\u25B6\uFE0E");
-		btnNewButton_4_1.setBounds(479, 321, 53, 23);
-		panel_2.add(btnNewButton_4_1);
+			}
+
+		});
+
+		JButton jojiPlay2 = new JButton("\u25B6\uFE0E");
+		jojiPlay2.setBounds(240, 287, 53, 23);
+		panel_2.add(jojiPlay2);
+		jojiPlay2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					audioInputStream = AudioSystem.getAudioInputStream(new File("./sonidos/willhe.wav"));
+					clipJoji2 = AudioSystem.getClip();
+					clipJoji2.open(audioInputStream);
+					clipJoji2.start();
+					System.out.println("aa");
+
+				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			}
+
+		});
+		
+
+		JButton jojiPlay3 = new JButton("\u25B6\uFE0E");
+		jojiPlay3.setBounds(479, 287, 53, 23);
+		panel_2.add(jojiPlay3);
+		jojiPlay3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try {
+					audioInputStream = AudioSystem.getAudioInputStream(new File("./sonidos/wantedu.wav"));
+					clipJoji3 = AudioSystem.getClip();
+					clipJoji3.open(audioInputStream);
+					clipJoji3.start();
+					System.out.println("aa");
+
+				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			}
+
+		});
 
 		JLabel lblNewLabel_7 = new JLabel("");
-		lblNewLabel_7.setBounds(68, 287, 65, 65);
+		lblNewLabel_7.setBounds(68, 245, 65, 65);
 		lblNewLabel_7.setIcon(new ImageIcon(
 				"D:\\Programacion\\ProyectoFinalSpotify\\ProyectoFinalSpotify\\imagenes\\jojiwillhe.jpg"));
 		lblNewLabel_7.setForeground(Color.WHITE);
 		panel_2.add(lblNewLabel_7);
 
 		JLabel lblNewLabel_8 = new JLabel("\r\n");
-		lblNewLabel_8.setBounds(303, 287, 69, 65);
+		lblNewLabel_8.setBounds(303, 245, 69, 65);
 		lblNewLabel_8.setIcon(new ImageIcon(
 				"D:\\Programacion\\ProyectoFinalSpotify\\ProyectoFinalSpotify\\imagenes\\jojinectar.jpg"));
 		lblNewLabel_8.setForeground(Color.WHITE);
 		panel_2.add(lblNewLabel_8);
 
 		JLabel lblNewLabel_9 = new JLabel("\r\n");
-		lblNewLabel_9.setBounds(542, 287, 69, 65);
+		lblNewLabel_9.setBounds(542, 245, 69, 65);
 		lblNewLabel_9.setIcon(new ImageIcon(
 				"D:\\Programacion\\ProyectoFinalSpotify\\ProyectoFinalSpotify\\imagenes\\jojiballads.jpg"));
 		lblNewLabel_9.setForeground(Color.WHITE);
 		panel_2.add(lblNewLabel_9);
 
-		JButton btnNewButton_6_3 = new JButton("||");
-		btnNewButton_6_3.setBounds(17, 287, 41, 23);
-		panel_2.add(btnNewButton_6_3);
+		JButton pausaJoji1 = new JButton("||");
+		pausaJoji1.setBounds(17, 245, 41, 23);
+		panel_2.add(pausaJoji1);
+		pausaJoji1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
 
-		JButton btnNewButton_6_4 = new JButton("||");
-		btnNewButton_6_4.setBounds(252, 287, 41, 23);
-		panel_2.add(btnNewButton_6_4);
+				clipJoji1.stop();
+				System.out.println("aa");
+			}
 
-		JButton btnNewButton_6_5 = new JButton("||");
-		btnNewButton_6_5.setBounds(491, 287, 41, 23);
-		panel_2.add(btnNewButton_6_5);
+		});
+
+
+		JButton pausaJoji2 = new JButton("||");
+		pausaJoji2.setBounds(252, 245, 41, 23);
+		panel_2.add(pausaJoji2);
+		pausaJoji2.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				clipJoji2.stop();
+				System.out.println("aa");
+			}
+
+		});
+
+
+		JButton pausaJoji3 = new JButton("||");
+		pausaJoji3.setBounds(491, 245, 41, 23);
+		panel_2.add(pausaJoji3);
+		pausaJoji3.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+
+				clipJoji3.stop();
+				System.out.println("aa");
+			}
+
+		});
+
+		
+		JLabel lblNewLabel_2 = new JLabel("In the back of my car");
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblNewLabel_2.setBounds(50, 151, 116, 14);
+		panel_2.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Nukisashi naranu");
+		lblNewLabel_3.setForeground(Color.WHITE);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblNewLabel_3.setBounds(303, 150, 80, 14);
+		panel_2.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_10 = new JLabel("Inmune to me");
+		lblNewLabel_10.setForeground(Color.WHITE);
+		lblNewLabel_10.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblNewLabel_10.setBounds(542, 151, 65, 14);
+		panel_2.add(lblNewLabel_10);
+		
+		JLabel lblNewLabel_11 = new JLabel("Will he");
+		lblNewLabel_11.setForeground(Color.WHITE);
+		lblNewLabel_11.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblNewLabel_11.setBounds(87, 321, 46, 14);
+		panel_2.add(lblNewLabel_11);
+		
+		JLabel lblNewLabel_12 = new JLabel("Ew");
+		lblNewLabel_12.setForeground(Color.WHITE);
+		lblNewLabel_12.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblNewLabel_12.setBounds(325, 321, 33, 14);
+		panel_2.add(lblNewLabel_12);
+		
+		JLabel lblNewLabel_13 = new JLabel("Wanted u");
+		lblNewLabel_13.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		lblNewLabel_13.setForeground(Color.WHITE);
+		lblNewLabel_13.setBounds(552, 321, 46, 14);
+		panel_2.add(lblNewLabel_13);
+		
+		JLabel lblNewLabel_14 = new JLabel("Puedes reproducir las canciones que quieras simultaneamente!!!");
+		lblNewLabel_14.setBackground(Color.BLACK);
+		lblNewLabel_14.setForeground(Color.WHITE);
+		lblNewLabel_14.setFont(new Font("Microsoft YaHei Light", Font.ITALIC, 12));
+		lblNewLabel_14.setBounds(162, 357, 370, 14);
+		panel_2.add(lblNewLabel_14);
 		irALibreria.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
