@@ -16,7 +16,7 @@ public class PantallaActual extends JFrame {
 		this.setIconImage(new ImageIcon("./imagenes/iconoprograma.jpg").getImage());
 		this.setTitle("Fantasy Music");
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.pantallaActual = new PantallaInicial(this);
+		this.pantallaActual = new PantallaLogin(this);
 		this.setContentPane(pantallaActual);
 		this.setVisible(true);
 	}
@@ -27,6 +27,12 @@ public class PantallaActual extends JFrame {
 		this.pantallaActual = null;
 
 		switch (nombrePantalla) {
+		case "pantallaLogin":
+			this.pantallaActual = new PantallaLogin(this);
+			break;
+		case "registro":
+			this.pantallaActual = new PantallaRegistro(this);
+			break;
 		case "pantallaInicial":
 			this.pantallaActual = new PantallaInicial(this);
 			break;

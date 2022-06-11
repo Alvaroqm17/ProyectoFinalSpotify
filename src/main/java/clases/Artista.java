@@ -1,13 +1,18 @@
 package clases;
 
-public class Artista extends Usuario{
+import java.sql.SQLException;
 
-	public Artista(String nombre, String contraseña) {
+import exceptions.ContraseñaIncorrectaException;
+import exceptions.UsuarioNoExisteException;
+
+public class Artista extends Usuario{
+	private Biblioteca discografia;
+
+	public Artista(String nombre, String contraseña) throws SQLException, ContraseñaIncorrectaException, UsuarioNoExisteException {
 		super(nombre, contraseña);
 		// TODO Auto-generated constructor stub
 	}
 
-	private Biblioteca discografia;
 
 	public Biblioteca getDiscografia() {
 		return discografia;
