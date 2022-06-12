@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import java.awt.Font;
 import clases.Usuario;
@@ -50,6 +51,11 @@ public class PantallaLogin extends JPanel {
 
 				try {
 					Usuario u = new Usuario(nombre, contraseña);
+					if(u!=null) {
+						ventana.cambiarAPantalla("pantallaInicial");
+						JOptionPane.showMessageDialog(ventana, "Sesion iniciada correctamente",
+								"Bienvenido " + nombre + "!",JOptionPane.PLAIN_MESSAGE);
+					}
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

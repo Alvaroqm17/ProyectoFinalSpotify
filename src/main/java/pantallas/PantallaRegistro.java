@@ -120,7 +120,7 @@ public class PantallaRegistro extends JPanel {
 				String contraseña = new String(contraseñaRegistro.getPassword());
 
 				try {
-					new Usuario(nombre, email, contraseña);
+					new Usuario(nombre, contraseña, email);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -133,7 +133,7 @@ public class PantallaRegistro extends JPanel {
 				}
 				JOptionPane.showMessageDialog(ventana, "Registro completado con exito",
 						"Registro completado",JOptionPane.PLAIN_MESSAGE);
-				ventana.cambiarAPantalla("PantallaLogin");
+				ventana.cambiarAPantalla("pantallaLogin");
 			}
 
 		});

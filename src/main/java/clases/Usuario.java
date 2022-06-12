@@ -15,7 +15,7 @@ import utilDB.UtilDB;
  * DAO de usuario que hace que todas las operaciones CRUD dentro de sus
  * funciones
  * 
- * @author Marcos
+ * @author Alvaro
  *
  */
 public class Usuario {
@@ -23,7 +23,8 @@ public class Usuario {
 	private String email;
 	private String contraseña;
 
-	public Usuario(String nombre, String email, String contraseña) throws SQLException, ContraseñaIncorrectaException, EmailIncorrectoException {
+
+	public Usuario(String nombre, String contraseña, String email) throws SQLException, ContraseñaIncorrectaException, EmailIncorrectoException {
 		super();
 		if (contraseña.isBlank()) {
 			throw new ContraseñaIncorrectaException("La contraseña no puede estar vacia.");
@@ -34,9 +35,8 @@ public class Usuario {
 		}
 
 		Statement query = UtilDB.conectarDB();
-		// Insertar
 
-		if (query.executeUpdate("insert into usuario values('" + nombre + "','" + email + "','" + contraseña + "')") > 0) {
+		if (query.executeUpdate("insert into usuario values('" + nombre + "','" +contraseña + "','" + email+ "')") > 0) {
 			this.nombre = nombre;
 			this.setEmail(email);
 			this.setContraseña(contraseña);
@@ -64,7 +64,7 @@ public class Usuario {
 		ResultSet cursor = smt.executeQuery("select * from usuario where nombre='" + nombre + "'");
 
 		if (cursor.next()) {
-			this.contraseña = cursor.getString("contrasena");
+			this.contraseña = cursor.getString("contrasenia");
 
 			if (!this.contraseña.equals(contraseña)) {
 				UtilDB.desconectarBD();
@@ -97,7 +97,7 @@ public class Usuario {
 		if (devuelveDatos.next()) {
 			this.nombre = devuelveDatos.getString("nombre");
 			email = devuelveDatos.getString("email");
-			contraseña = devuelveDatos.getString("contrasena");
+			contraseña = devuelveDatos.getString("contrasenia");
 		} else {
 			UtilDB.desconectarBD();
 			throw new SQLException("No se ha podido insertar el usuario");
@@ -181,7 +181,7 @@ public class Usuario {
 		Statement smt = UtilDB.conectarDB();
 
 		if (smt.executeUpdate(
-				"update usuario set contrasena='" + contraseña + "' where nombre='" + this.nombre + "'") > 0) {
+				"update usuario set contrasenia='" + contraseña + "' where nombre='" + this.nombre + "'") > 0) {
 			this.contraseña = contraseña;
 		}
 		UtilDB.desconectarBD();
@@ -228,7 +228,7 @@ public class Usuario {
 				Usuario actual = new Usuario();
 
 				actual.nombre = cursor.getString("nombre");
-				actual.contraseña = cursor.getString("contrasena");
+				actual.contraseña = cursor.getString("contrasenia");
 				actual.email = cursor.getString("email");
 				ret.add(actual);
 			}
