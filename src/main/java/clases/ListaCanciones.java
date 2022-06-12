@@ -76,7 +76,29 @@ public class ListaCanciones extends ObjetoConNombre {
 			}
 
 	public ListaCanciones() {
+	}
+	
+	public static ArrayList<ListaCanciones> getTodos() {
+		Statement smt = UtilDB.conectarDB();
+		ArrayList<ListaCanciones> ret = new ArrayList<ListaCanciones>();
 
+		try {
+			ResultSet cursor = smt.executeQuery("select * from playlist");
+			while (cursor.next()) {
+				ListaCanciones actual = new ListaCanciones();
+				actual.setNombre(cursor.getString("nombre"));
+
+				ret.add(actual);
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+			return null;
+		}
+
+		UtilDB.desconectarBD();
+		return ret;
 	}
 
+	
 }

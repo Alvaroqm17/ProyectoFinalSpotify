@@ -12,8 +12,6 @@ import utilDB.UtilDB;
 
 public class Cancion extends ObjetoConSonido {
 
-	private Artista artista;
-	private int duracion;
 	private Estilos EstiloCancion;
 	private Clip reproducirCancion;
 	private String nombre;
@@ -53,21 +51,6 @@ public class Cancion extends ObjetoConSonido {
 		this.nombre = nombre;
 	}
 
-	public Artista getArtista() {
-		return artista;
-	}
-
-	public void setArtista(Artista artista) {
-		this.artista = artista;
-	}
-
-	public int getDuracion() {
-		return duracion;
-	}
-
-	public void setDuracion(int duracion) {
-		this.duracion = duracion;
-	}
 
 	public Estilos getEstiloCancion() {
 		return EstiloCancion;
@@ -106,5 +89,28 @@ public class Cancion extends ObjetoConSonido {
 		UtilDB.desconectarBD();
 		return ret;
 	}
+	public static ArrayList<Cancion> getTodas() {
+		Statement smt = UtilDB.conectarDB();
+		ArrayList<Cancion> ret = new ArrayList<Cancion>();
+
+		try {
+			ResultSet cursor = smt.executeQuery("select * from canciones");
+			while (cursor.next()) {
+				Cancion actual = new Cancion();
+				actual.setNombre(cursor.getString("nombre"));
+
+				ret.add(actual);
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+			return null;
+		}
+
+		UtilDB.desconectarBD();
+		return ret;
+	}
+	
+	
 
 }

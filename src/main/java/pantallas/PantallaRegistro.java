@@ -120,7 +120,12 @@ public class PantallaRegistro extends JPanel {
 				String contraseña = new String(contraseñaRegistro.getPassword());
 
 				try {
-					new Usuario(nombre, contraseña, email);
+				 Usuario u = new Usuario(nombre, contraseña, email);
+				 if(u!=null) {
+					 JOptionPane.showMessageDialog(ventana, "Registro completado con exito",
+								"Registro completado",JOptionPane.PLAIN_MESSAGE);
+						ventana.cambiarAPantalla("pantallaLogin"); 
+				 }
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -128,12 +133,12 @@ public class PantallaRegistro extends JPanel {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (EmailIncorrectoException e1) {
-					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(ventana,
+							"El email introducido no es valido. Recuerde usar @",
+							"Error",
+							JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
-				}
-				JOptionPane.showMessageDialog(ventana, "Registro completado con exito",
-						"Registro completado",JOptionPane.PLAIN_MESSAGE);
-				ventana.cambiarAPantalla("pantallaLogin");
+				}			
 			}
 
 		});

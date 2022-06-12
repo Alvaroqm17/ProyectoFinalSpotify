@@ -11,6 +11,7 @@ import exceptions.EmailIncorrectoException;
 import exceptions.UsuarioNoExisteException;
 import utilDB.UtilDB;
 
+
 /**
  * DAO de usuario que hace que todas las operaciones CRUD dentro de sus
  * funciones
@@ -46,17 +47,7 @@ public class Usuario {
 		}
 		UtilDB.desconectarBD();
 	}
-
-	/**
-	 * Constructor que a partir de la clave primaria (nombre) Consulta en base de
-	 * datos el usuario que ya tenga ese nombre. Si no existe, lanza un
-	 * SQLException. Si existe, rellena el resto de variables internas a partir de
-	 * los valores que le da el cursor de la consulta
-	 * 
-	 * @param nombre el nombre que debería existir ya en la BD
-	 * @throws SQLException excepción lanzada si no se encuentra el nombre
-	 * 
-	 */
+	
 	public Usuario(String nombre, String contraseña)
 			throws SQLException, ContraseñaIncorrectaException, UsuarioNoExisteException {
 		Scanner sc = new Scanner(System.in);
@@ -72,14 +63,25 @@ public class Usuario {
 			}
 
 			this.nombre = cursor.getString("nombre");
-			this.email = cursor.getString("email");
-			
+			this.email = cursor.getString("email");		
 		} else {
 			UtilDB.desconectarBD();
 			throw new UsuarioNoExisteException("No existe el usuario en la BD.");
 		}
 		UtilDB.desconectarBD();
 	}
+
+	/**
+	 * Constructor que a partir de la clave primaria (nombre) Consulta en base de
+	 * datos el usuario que ya tenga ese nombre. Si no existe, lanza un
+	 * SQLException. Si existe, rellena el resto de variables internas a partir de
+	 * los valores que le da el cursor de la consulta
+	 * 
+	 * @param nombre el nombre que debería existir ya en la BD
+	 * @throws SQLException excepción lanzada si no se encuentra el nombre
+	 * 
+	 */
+	
 
 	/**
 	 * Constructor que a partir de la clave primaria (nombre) Consulta en base de
@@ -108,6 +110,8 @@ public class Usuario {
 	public Usuario() {
 
 	}
+
+
 
 	/**
 	 * Comprobamos si una contraseña es valida o no.
@@ -224,5 +228,6 @@ public class Usuario {
 		UtilDB.desconectarBD();
 		return ret;
 	}
+	
 
 }

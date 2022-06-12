@@ -9,10 +9,17 @@ import javax.swing.JLabel;
 import javax.swing.JSplitPane;
 import javax.swing.BoxLayout;
 import javax.swing.SwingConstants;
+
+import clases.Cancion;
+import clases.ListaCanciones;
+import elemntosvisuales.ElementoCancionLista;
+import elemntosvisuales.ElementoPlayList;
+
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import java.awt.CardLayout;
@@ -21,6 +28,7 @@ import java.awt.GridBagConstraints;
 
 public class PantallaLibreria extends JPanel {
 	private PantallaActual ventana;
+	private JPanel listaPlayList;
 	public PantallaLibreria(PantallaActual v) {
 		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
@@ -84,6 +92,16 @@ public class PantallaLibreria extends JPanel {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		add(scrollPane, BorderLayout.CENTER);
+		
+		listaPlayList = new JPanel();
+		listaPlayList.setBackground(Color.BLACK);
+		scrollPane.setViewportView(listaPlayList);
+		listaPlayList.setLayout(new BoxLayout(listaPlayList, BoxLayout.Y_AXIS));
+		
+		ArrayList<ListaCanciones> todos=ListaCanciones.getTodos();
+		for(int i=0;i<todos.size();i++) {
+			listaPlayList.add(new ElementoPlayList(ventana,todos.get(i)));
+		}
 		
 		
 		

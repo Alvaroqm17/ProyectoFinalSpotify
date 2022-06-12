@@ -52,18 +52,24 @@ public class PantallaLogin extends JPanel {
 				try {
 					Usuario u = new Usuario(nombre, contraseña);
 					if(u!=null) {
-						ventana.cambiarAPantalla("pantallaInicial");
 						JOptionPane.showMessageDialog(ventana, "Sesion iniciada correctamente",
 								"Bienvenido " + nombre + "!",JOptionPane.PLAIN_MESSAGE);
+						ventana.cambiarAPantalla("pantallaInicial");
 					}
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (ContraseñaIncorrectaException e1) {
-					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(ventana,
+							"La contraseña es incorrecta, pruebe de nuevo",
+							"Error",
+							JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				} catch (UsuarioNoExisteException e1) {
-					// TODO Auto-generated catch block
+					JOptionPane.showMessageDialog(ventana,
+							"El usuario introducido no existe. Pruebe con otro o registrese.",
+							"Error",
+							JOptionPane.ERROR_MESSAGE);
 					e1.printStackTrace();
 				}
 			}
