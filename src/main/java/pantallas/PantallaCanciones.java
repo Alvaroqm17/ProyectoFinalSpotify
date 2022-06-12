@@ -6,12 +6,18 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.SwingConstants;
+
+import clases.Cancion;
+import clases.Usuario;
+import elemntosvisuales.ElementoCancionLista;
+
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.GridBagLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 import java.awt.GridBagConstraints;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
@@ -78,9 +84,15 @@ public class PantallaCanciones extends JPanel {
 
 		JScrollPane scrollPane = new JScrollPane();
 		panel_3.add(scrollPane, BorderLayout.CENTER);
-
-		JList list = new JList();
-		scrollPane.setViewportView(list);
+		
+		JPanel listaCanciones = new JPanel();
+		scrollPane.setViewportView(listaCanciones);
+		listaCanciones.setLayout(new BoxLayout(listaCanciones, BoxLayout.Y_AXIS));
+		
+		ArrayList<Cancion> todos=Cancion.getTodos();
+		for(int i=0;i<todos.size();i++) {
+			listaCanciones.add(new ElementoCancionLista(ventana,todos.get(i)));
+		}
 	}
 
 }

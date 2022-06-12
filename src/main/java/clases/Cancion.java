@@ -3,6 +3,7 @@ package clases;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Scanner;
 import javax.sound.sampled.Clip;
 import enums.Estilos;
@@ -17,7 +18,7 @@ public class Cancion extends ObjetoConSonido {
 	private Clip reproducirCancion;
 	private String nombre;
 
-	public Cancion(String nombre) throws SQLException, CancionNoExisteException  {
+	public Cancion(String nombre) throws SQLException, CancionNoExisteException {
 		super();
 		Scanner sc = new Scanner(System.in);
 		Statement smt = UtilDB.conectarDB();
@@ -28,17 +29,21 @@ public class Cancion extends ObjetoConSonido {
 
 			if (!this.nombre.equals(nombre)) {
 				UtilDB.desconectarBD();
-				throw new CancionNoExisteException("La cancion no existe, o actualmente no ha sido añadida a la aplicacion.");
-			}else {
+				throw new CancionNoExisteException(
+						"La cancion no existe, o actualmente no ha sido añadida a la aplicacion.");
+			} else {
 				if (smt.executeUpdate("insert into canciones_añadidas (nombre) values('" + nombre + "')") > 0) {
 					this.nombre = nombre;
 				}
 			}
 
-		UtilDB.desconectarBD();
+			UtilDB.desconectarBD();
 		}
-		}
+	}
 
+	public Cancion() {
+		// TODO Auto-generated constructor stub
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -78,6 +83,28 @@ public class Cancion extends ObjetoConSonido {
 
 	public void setReproducirCancion(Clip reproducirCancion) {
 		this.reproducirCancion = reproducirCancion;
+	}
+
+	public static ArrayList<Cancion> getTodos() {
+		Statement smt = UtilDB.conectarDB();
+		ArrayList<Cancion> ret = new ArrayList<Cancion>();
+
+		try {
+			ResultSet cursor = smt.executeQuery("select * from canciones_añadidas");
+			while (cursor.next()) {
+				Cancion actual = new Cancion();
+				actual.setNombre(cursor.getString("nombre"));
+
+				ret.add(actual);
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+			return null;
+		}
+
+		UtilDB.desconectarBD();
+		return ret;
 	}
 
 }
