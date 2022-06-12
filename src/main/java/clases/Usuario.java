@@ -197,25 +197,6 @@ public class Usuario {
 	 * @return true si se ha eliminado, false si no se ha podido
 	 */
 
-	public boolean eliminar() {
-		// El borrado lo hacemos con la PK para no equivocarnos y borrar lo que no es.
-
-		Statement smt = UtilDB.conectarDB();
-		boolean ret;
-		try {
-			// Primero lo eliminamos de la base de datos.
-			ret = smt.executeUpdate("delete from usuario where nombre='" + this.nombre + "'") > 0;
-			// Luego lo eliminamos de Java.
-			this.nombre = null;
-			this.contraseña = null;
-			this.email = null;
-		} catch (SQLException e) {
-			UtilDB.desconectarBD();
-			return false;
-		}
-		UtilDB.desconectarBD();
-		return ret;
-	}
 
 	public static ArrayList<Usuario> getTodos() {
 		Statement smt = UtilDB.conectarDB();

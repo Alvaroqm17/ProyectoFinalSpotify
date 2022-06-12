@@ -9,9 +9,12 @@ import java.sql.SQLException;
 import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
+import clases.Cancion;
 import clases.ListaCanciones;
+import exceptions.CancionNoExisteException;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -145,6 +148,25 @@ public class PantallaCrearPlaylist extends JPanel {
 		añadirCancion.setFont(new Font("Cascadia Mono", Font.PLAIN, 12));
 		añadirCancion.setForeground(Color.WHITE);
 		añadirCancion.setBackground(Color.BLACK);
+		añadirCancion.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				String cancion = buscarCancion.getText().toUpperCase();
+				
+					try {
+						 Cancion c =new Cancion(cancion);
+						 
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (CancionNoExisteException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				
+			}
+		});
+		
 		GridBagConstraints gbc_añadirCancion = new GridBagConstraints();
 		gbc_añadirCancion.insets = new Insets(0, 0, 5, 5);
 		gbc_añadirCancion.gridx = 5;

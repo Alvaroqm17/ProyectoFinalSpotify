@@ -10,6 +10,10 @@ create table canciones(
 nombre VARCHAR(40) PRIMARY KEY
 );
 
+create table canciones_añadidas(
+	nombre VARCHAR(40) PRIMARY KEY
+);
+
 create table usuario(
 nombre VARCHAR(40) PRIMARY KEY,
 contrasenia VARCHAR(40),
@@ -20,7 +24,7 @@ create table playlist_canciones(
 nombrePLayList varchar(40),
 nombreCanciones varchar(40),
 FOREIGN KEY(nombrePlayList) REFERENCES playlist(nombre),
-FOREIGN KEY(nombreCanciones) REFERENCES canciones(nombre)
+FOREIGN KEY(nombreCanciones) REFERENCES canciones_añadidas(nombre)
 );
 
 #Canciones Joji
