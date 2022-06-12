@@ -7,7 +7,23 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Font;
 
+/**
+ * Clase en la que se crea un boton con un diseño definido para luego usarlo al inicializar un boton y darle valores por defecto usado en la pantalla inicial
+ * para navegar por las pantallas de la app.
+ * 
+ * @author Alvaro Quiñones Melero
+ *
+ */
+
 public class BotonLista extends JButton {
+	
+	/**
+	 * Constructor de la pantalla que contiene la intefaz grafica con todos sus elementos.
+	 * 
+	 * @param m que utiliza para pasar el nombre que queremos que aparezca en el boton desde la interfaz.
+	 * 
+	 */
+	
 	public BotonLista(String m) {
 		super(m);
 		estiloPorDefecto();

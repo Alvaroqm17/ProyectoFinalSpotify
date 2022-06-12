@@ -23,6 +23,12 @@ import java.awt.Insets;
 import javax.swing.ImageIcon;
 import java.awt.FlowLayout;
 
+/**
+ * Clase con interfaz grafica en la que se empieza tras hacer el login y es el punto de navegaciuon de la app, tambien permite el uso de la musica
+ * @author Alvaro Quiñones Melero
+ *
+ */
+
 public class PantallaInicial extends JPanel {
 	private PantallaActual ventana;
 	private AudioInputStream audioInputStream;
@@ -32,6 +38,12 @@ public class PantallaInicial extends JPanel {
 	private Clip clipJoji1;
 	private Clip clipJoji2;
 	private Clip clipJoji3;
+	
+	/**
+	 * Constructor de la pantalla que contiene la intefaz grafica con tods sus elementos asi como los botones de navegacion y de reproduccion y pausa para las canciones
+	 * 
+	 * @param v que utiliza para inicializar la pantalla y hacer posible la navegacion entre ellas
+	 */
 
 
 	public PantallaInicial(PantallaActual v) {

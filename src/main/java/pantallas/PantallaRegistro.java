@@ -25,11 +25,23 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Canvas;
 
+/**
+ * Clase que registra un nuevo usuario insertandolo en la base de datos haciendo asi posible su login.
+ * 
+ * @author Alvaro Quiñones Melero
+ *
+ */
 public class PantallaRegistro extends JPanel {
 	private PantallaActual ventana;
 	private JTextField usuarioRegistro;
 	private JTextField emailRegistro;
 	private JPasswordField contraseñaRegistro;
+	
+	/**
+	 * Constructor de la pantalla que contiene la intefaz grafica con tods sus elementos y hace posible el login de usuarios ya registrados
+	 * 
+	 * @param v que utiliza para inicializar la pantalla y hacer posible el registro de nuevos usuarios
+	 */
 
 	public PantallaRegistro(PantallaActual v) {
 		this.ventana = v;

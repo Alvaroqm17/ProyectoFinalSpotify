@@ -6,11 +6,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.SwingConstants;
-
 import clases.Cancion;
-import clases.Usuario;
 import elemntosvisuales.ElementoCancionLista;
-
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
@@ -19,11 +16,23 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.awt.GridBagConstraints;
-import javax.swing.JList;
 import javax.swing.JScrollPane;
+
+/**
+ * Clase que muestra una lista con las canciones que se han añadido desde la pantalla CrearPlaylist
+ * 
+ * @author Alvaro Quiñones Melero
+ *
+ */
 
 public class PantallaCanciones extends JPanel {
 	private PantallaActual ventana;
+	
+	/**
+	 * Constructor de la pantalla que contiene la intefaz grafica con tods sus elementos y un arrayList de la tabla canciones_añadidas de la base de datos
+	 * 
+	 * @param v que utiliza para inicializar la pantalla y hacer posible la navegacion entre ellas
+	 */
 
 	public PantallaCanciones(PantallaActual v) {
 		this.ventana = v;

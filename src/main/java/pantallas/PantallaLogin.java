@@ -17,10 +17,23 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 
+/**
+ * Clase en la que se hace el login del usuario si ya ha sido registrado en la base de datos, sino debera navegar con el boton registro para registrarse.
+ * 
+ * @author Alvaro Quiñones Melero
+ *
+ */
+
 public class PantallaLogin extends JPanel {
 	private PantallaActual ventana;
 	private JTextField campoUsuario;
 	private JPasswordField campoContraseña;
+	
+	/**
+	 * Constructor de la pantalla que contiene la intefaz grafica con tods sus elementos y hace posible el login de usuarios ya registrados
+	 * 
+	 * @param v que utiliza para inicializar la pantalla y hacer posible la navegacion entre ellas
+	 */
 
 	public PantallaLogin(PantallaActual v) {
 		this.ventana=v;

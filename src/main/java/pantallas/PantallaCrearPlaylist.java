@@ -2,7 +2,6 @@ package pantallas;
 
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.awt.GridBagLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
@@ -12,30 +11,34 @@ import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-
 import clases.Cancion;
 import clases.ListaCanciones;
 import elemntosvisuales.ElementoCancionesDisponibles;
-import elemntosvisuales.ElementoPlayList;
 import exceptions.CancionNoExisteException;
-
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import java.awt.FlowLayout;
-import javax.swing.JList;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+/**
+ * Clase que permite cerar nuevas playlist y añadir canciones que se encuentren en la base de datos a la lista de canciones de la aplicacion
+ * 
+ * @author Alvaro Quiñones Melero
+ *
+ */
 
 public class PantallaCrearPlaylist extends JPanel {
 
 	private PantallaActual ventana;
 	private JTextField nombreLista;
 	private JTextField buscarCancion;
-
+	
+	/**
+	 * Constructor de la pantalla que contiene la intefaz grafica con todos sus elementos que permite crear playlist y añadior canciones
+	 * 
+	 * @param v que utiliza para inicializar la pantalla y hacer posible la navegacion entre ellas
+	 */
+	
 	public PantallaCrearPlaylist(PantallaActual v) {
 		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
