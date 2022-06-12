@@ -76,6 +76,51 @@ VALUES ("YONAGUNI");
 INSERT INTO canciones (nombre)
 VALUES ("DAKITI");
 
+#Artic Monkeys
+
+INSERT INTO canciones (nombre)
+VALUES ("DO I WANNA KNOW?");
+INSERT INTO canciones (nombre)
+VALUES ("ARABELLA");
+INSERT INTO canciones (nombre)
+VALUES ("R U MINE");
+INSERT INTO canciones (nombre)
+VALUES ("TEDDY PICKER");
+INSERT INTO canciones (nombre)
+VALUES ("FLUORESCENT ADOLESCENT");
+INSERT INTO canciones (nombre)
+VALUES ("OLD YELLOW BRICKS");
+
+#Bring me the horizon
+
+INSERT INTO canciones (nombre)
+VALUES ("CAN YOU FEEL MY HEART");
+INSERT INTO canciones (nombre)
+VALUES ("DOOMED");
+INSERT INTO canciones (nombre)
+VALUES ("THRONE");
+INSERT INTO canciones (nombre)
+VALUES ("FOLLOW YOU");
+INSERT INTO canciones (nombre)
+VALUES ("SHADOW MOSES");
+INSERT INTO canciones (nombre)
+VALUES ("SLEEP WALKING");
+
+#Metalica
+
+INSERT INTO canciones (nombre)
+VALUES ("SAD BUT TRUE");
+INSERT INTO canciones (nombre)
+VALUES ("ENTER SANDMAN");
+INSERT INTO canciones (nombre)
+VALUES ("THE UNFORGIVEN");
+INSERT INTO canciones (nombre)
+VALUES ("MASTER OF PUPPETS");
+INSERT INTO canciones (nombre)
+VALUES ("NOTHING ELSE MATTER");
+INSERT INTO canciones (nombre)
+VALUES ("WHISKEY IN THE JAR");
+
 
 
 
