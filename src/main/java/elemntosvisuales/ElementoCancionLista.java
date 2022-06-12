@@ -12,9 +12,25 @@ import javax.swing.ImageIcon;
 import java.awt.Font;
 import java.awt.Color;
 
+/**
+ * Clase en la que se crea una pantalla con un diseño definido para luego introducirla en la pantalla de canciones y alistarla segun las canciones añadidas a la
+ * tabla de la base de datos
+ * 
+ * @author Alvaro Quiñones Melero
+ *
+ */
+
 public class ElementoCancionLista extends JPanel{
 	private PantallaActual ventana;
 	private Cancion cancion;
+	
+	/**
+	 * Constructor de la pantalla que contiene la intefaz grafica con todos sus elementos.
+	 * 
+	 * @param v que utiliza para inicializar la pantalla y hacer posible la navegacion entre ellas
+	 * @param c que se utiliza para introducir el nombre de la playlist.
+	 * 
+	 */
 
 	public ElementoCancionLista(PantallaActual v, Cancion c) {
 		setBackground(Color.BLACK);

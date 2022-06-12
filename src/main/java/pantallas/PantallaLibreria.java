@@ -26,9 +26,22 @@ import java.awt.CardLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 
+/**
+ * Clase que contiene la interfaz grafica donde se muestran las playlist creadas previamentes en forma de ElementoPlayList.
+ * 
+ * @author Alvaro Quiñones Melero
+ *
+ */
 public class PantallaLibreria extends JPanel {
 	private PantallaActual ventana;
 	private JPanel listaPlayList;
+	
+	/**
+	 * Constructor de la pantalla que contiene la intefaz grafica con tods sus elementos y un arrayList de las listas de canciones creadas.
+	 * 
+	 * @param v que utiliza para inicializar la pantalla y hacer posible la navegacion entre ellas
+	 */
+	
 	public PantallaLibreria(PantallaActual v) {
 		this.ventana = v;
 		setLayout(new BorderLayout(0, 0));
