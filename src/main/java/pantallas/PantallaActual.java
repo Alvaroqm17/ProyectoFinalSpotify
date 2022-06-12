@@ -45,6 +45,9 @@ public class PantallaActual extends JFrame {
 		case "crear":
 			this.pantallaActual = new PantallaCrearPlaylist(this);
 			break;
+		case "miscanciones":
+			this.pantallaActual = new PantallaCanciones(this);
+			break;
 
 		}
 		this.pantallaActual.setVisible(true);

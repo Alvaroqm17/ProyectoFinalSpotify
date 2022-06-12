@@ -144,8 +144,8 @@ public class PantallaCrearPlaylist extends JPanel {
 		panelCentro.add(buscarCancion, gbc_buscarCancion);
 		buscarCancion.setColumns(10);
 
-		JButton añadirCancion = new JButton("A\u00F1adir");
-		añadirCancion.setFont(new Font("Cascadia Mono", Font.PLAIN, 12));
+		JButton añadirCancion = new JButton("A\u00F1adira a tu lista de canciones");
+		añadirCancion.setFont(new Font("Cascadia Mono", Font.PLAIN, 11));
 		añadirCancion.setForeground(Color.WHITE);
 		añadirCancion.setBackground(Color.BLACK);
 		añadirCancion.addMouseListener(new MouseAdapter() {

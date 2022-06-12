@@ -87,6 +87,20 @@ public class PantallaInicial extends JPanel {
 		gbc_irALibreria.gridx = 0;
 		gbc_irALibreria.gridy = 1;
 		panelWest.add(irALibreria, gbc_irALibreria);
+		
+		BotonLista irAMisCanciones = new BotonLista("Libreria");
+		irAMisCanciones.setText("Mis canciones");
+		GridBagConstraints gbc_irAMisCanciones = new GridBagConstraints();
+		gbc_irAMisCanciones.insets = new Insets(0, 0, 5, 0);
+		gbc_irAMisCanciones.gridx = 0;
+		gbc_irAMisCanciones.gridy = 2;
+		panelWest.add(irAMisCanciones, gbc_irAMisCanciones);
+		irAMisCanciones.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				ventana.cambiarAPantalla("miscanciones");
+			}
+		});
 
 		JPanel panel = new JPanel();
 		add(panel, BorderLayout.CENTER);
