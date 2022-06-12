@@ -174,6 +174,12 @@ public class PantallaCrearPlaylist extends JPanel {
 		listaCancionesDisponibles.setForeground(Color.WHITE);
 		scrollPane.setViewportView(listaCancionesDisponibles);
 		listaCancionesDisponibles.setLayout(new BoxLayout(listaCancionesDisponibles, BoxLayout.Y_AXIS));
+		
+		JLabel lblNewLabel_5 = new JLabel("Si no a\u00F1ade una de las canciones que aparece en la lista de la derecha no se a\u00F1adira");
+		lblNewLabel_5.setForeground(Color.WHITE);
+		lblNewLabel_5.setFont(new Font("Arial Black", Font.ITALIC, 11));
+		lblNewLabel_5.setBounds(85, 350, 548, 14);
+		panelCentro.add(lblNewLabel_5);
 		ArrayList<Cancion> todos=Cancion.getTodas();
 		for(int i=0;i<todos.size();i++) {
 			listaCancionesDisponibles.add(new ElementoCancionesDisponibles(ventana,todos.get(i)));

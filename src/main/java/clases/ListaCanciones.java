@@ -10,11 +10,16 @@ import java.util.Scanner;
 import exceptions.CancionNoExisteException;
 import utilDB.UtilDB;
 
+/**
+ *Clase que crea nuevas playlists y las inserta en la base de datos 
+ * 
+ * @author Alvaro Quiñones
+ *
+ */
 
-public class ListaCanciones extends ObjetoConNombre {
+public class ListaCanciones {
 
 	private String nombre;
-	private ArrayList<Cancion> lista;
 	private String cancion;
 	
 	
@@ -22,20 +27,28 @@ public class ListaCanciones extends ObjetoConNombre {
 	public void setCancion(String cancion) {
 		this.cancion = cancion;
 	}
+	
 
-	public ArrayList<Cancion> getCancion() {
-		return lista;
+		
+	 public String getNombre() {
+		return nombre;
 	}
 
-	public void setCancion(ArrayList<Cancion> lista) {
-		this.lista = lista;
-	}
 
-	public ListaCanciones(ArrayList<Cancion> lista, String nombre) {
-		super();
-		this.lista = lista;
+
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
+
+
+	/**
+
+    * Constructor para añadir la playlist a tu libreria primero comprobando si esta en la base de datos
+
+    * @param nombre es el nombre de la cancion que insertamos en la tabla playlist
+
+    */
 
 	public ListaCanciones(String nombre) throws SQLException {
 		super();
@@ -51,29 +64,11 @@ public class ListaCanciones extends ObjetoConNombre {
 		UtilDB.desconectarBD();
 	}
 	
-	public ListaCanciones(String nombre, String cancion) throws SQLException, CancionNoExisteException {
-		super();
-		
-			Scanner sc = new Scanner(System.in);
-			Statement smt = UtilDB.conectarDB();
-			ResultSet cursor = smt.executeQuery("select * from canciones where nombre='" + cancion + "'");
+	 /**
 
-			if (cursor.next()) {
-				this.cancion = cursor.getString("nombre").toUpperCase();
+     * Método que consulta la base de datos y concatena los nombres de las playlists en un arrayList
 
-				if (!this.cancion.equals(cancion)) {
-					UtilDB.desconectarBD();
-					throw new CancionNoExisteException("La cancion no existe, o actualmente no ha sido añadida a la aplicacion.");
-				}else {
-					System.out.println("Cancion insertada en la playlist");
-					smt.executeUpdate("INSERT INTO playlist (nombre) VALUES ('"+nombre+"'");
-					smt.executeUpdate("INSERT INTO canciones (nombre) VALUES ('"+cancion+"'");
-								
-							}
-				}
-
-			UtilDB.desconectarBD();
-			}
+     */
 
 	public ListaCanciones() {
 	}

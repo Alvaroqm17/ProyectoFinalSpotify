@@ -10,11 +10,24 @@ import enums.Estilos;
 import exceptions.CancionNoExisteException;
 import utilDB.UtilDB;
 
-public class Cancion extends ObjetoConSonido {
+/**
 
-	private Estilos EstiloCancion;
-	private Clip reproducirCancion;
+ * Esta clase se conecta con la base de datos para insertar y consultar canciones que luego se usan en el programa para añdirlas a la lista de canciones
+ * @author: Alvaro Quiñones Melero
+ * @version: 1.0
+ */
+
+public class Cancion {
+
 	private String nombre;
+	
+	 /**
+
+     * Constructor para añadir la cancion a la lista de tus canciones primero comprobando si esta en la base de datos
+
+     * @param nombre es el nombre de la cancion que comprobamos si esta en la tabla canciones y luego insertamos en la tabla canciones_añadidas
+
+     */
 
 	public Cancion(String nombre) throws SQLException, CancionNoExisteException {
 		super();
@@ -39,10 +52,22 @@ public class Cancion extends ObjetoConSonido {
 		}
 	}
 
+	 /**
+
+     * Constructor para crear el arrayList de las funciones getTodos y getTodas
+
+     */
 	public Cancion() {
 		// TODO Auto-generated constructor stub
 	}
 
+	/**
+
+     * Método que devuelve el nombre
+
+     * @return el nombre la cancion
+
+     */
 	public String getNombre() {
 		return nombre;
 	}
@@ -50,23 +75,12 @@ public class Cancion extends ObjetoConSonido {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	 /**
 
+     * Método que consulta la base de datos y concatena los nombres de las canciones en un arrayList
 
-	public Estilos getEstiloCancion() {
-		return EstiloCancion;
-	}
-
-	public void setEstiloCancion(Estilos estiloCancion) {
-		EstiloCancion = estiloCancion;
-	}
-
-	public Clip getReproducirCancion() {
-		return reproducirCancion;
-	}
-
-	public void setReproducirCancion(Clip reproducirCancion) {
-		this.reproducirCancion = reproducirCancion;
-	}
+     */
 
 	public static ArrayList<Cancion> getTodos() {
 		Statement smt = UtilDB.conectarDB();
@@ -89,6 +103,15 @@ public class Cancion extends ObjetoConSonido {
 		UtilDB.desconectarBD();
 		return ret;
 	}
+	
+	 /**
+
+     * Método que consulta la base de datos y concatena los nombres de las canciones previamente añadidas en un arrayList
+     
+	 * @return Si no hay canciones en la tabla, va a devolver un arraylist vacio.
+
+     */
+	
 	public static ArrayList<Cancion> getTodas() {
 		Statement smt = UtilDB.conectarDB();
 		ArrayList<Cancion> ret = new ArrayList<Cancion>();

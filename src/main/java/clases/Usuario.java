@@ -14,9 +14,9 @@ import utilDB.UtilDB;
 
 /**
  * DAO de usuario que hace que todas las operaciones CRUD dentro de sus
- * funciones
+ * funciones.
  * 
- * @author Alvaro
+ * @author Alvaro Quiñones Melero
  *
  */
 public class Usuario {
@@ -24,6 +24,16 @@ public class Usuario {
 	private String email;
 	private String contraseña;
 
+	 /**
+
+     * Constructor de usuario que permite el registro de un nuevo usuario comprobando las excepciones
+
+     * @param nombre del usuario, la contraseña del usuario, y el email.
+     *
+     * @exception SQLException, ContraseñaIncorrectaException, EmailIncorrectoException
+
+
+     */
 
 	public Usuario(String nombre, String contraseña, String email) throws SQLException, ContraseñaIncorrectaException, EmailIncorrectoException {
 		super();
@@ -48,6 +58,17 @@ public class Usuario {
 		UtilDB.desconectarBD();
 	}
 	
+	 /**
+
+     * Constructor de usuario que permite el login para acceder a la aplicacion
+
+     * @param nombre del usuario y la contraseña del usuario que han sido previamente registradas.
+     *
+     * @exception SQLException, ContraseñaIncorrectaException, UsuarioNoExisteException.
+
+
+     */
+	
 	public Usuario(String nombre, String contraseña)
 			throws SQLException, ContraseñaIncorrectaException, UsuarioNoExisteException {
 		Scanner sc = new Scanner(System.in);
@@ -70,19 +91,7 @@ public class Usuario {
 		}
 		UtilDB.desconectarBD();
 	}
-
-	/**
-	 * Constructor que a partir de la clave primaria (nombre) Consulta en base de
-	 * datos el usuario que ya tenga ese nombre. Si no existe, lanza un
-	 * SQLException. Si existe, rellena el resto de variables internas a partir de
-	 * los valores que le da el cursor de la consulta
-	 * 
-	 * @param nombre el nombre que debería existir ya en la BD
-	 * @throws SQLException excepción lanzada si no se encuentra el nombre
-	 * 
-	 */
 	
-
 	/**
 	 * Constructor que a partir de la clave primaria (nombre) Consulta en base de
 	 * datos el usuario que ya tenga ese nombre. Si no existe, lanza un
@@ -90,7 +99,7 @@ public class Usuario {
 	 * los valores que le da el cursor de la consulta
 	 * 
 	 * @param nombre el nombre que deber�a existir ya en la BD
-	 * @throws SQLException excepci�n lanzada si no se encuentra el nombre
+	 * @throws SQLException excepcion lanzada si no se encuentra el nombre
 	 * 
 	 */
 	protected Usuario(String nombre) throws SQLException {
@@ -106,6 +115,12 @@ public class Usuario {
 		}
 		UtilDB.desconectarBD();
 	}
+	
+	 /**
+
+     * Constructor de usuario que permite la declaracion de arrayList usado en la funcion getTodos.
+     
+     */
 
 	public Usuario() {
 
@@ -117,11 +132,18 @@ public class Usuario {
 	 * Comprobamos si una contraseña es valida o no.
 	 * 
 	 * @param pass
-	 * @return
+	 * @return la contraseña 
 	 */
 	private boolean contraseñaValida(String pass) {
 		return !pass.isBlank();
 	}
+	
+	/**
+	 * Comprobamos si una email es valida o no.
+	 * 
+	 * @param email
+	 * @return email 
+	 */
 
 	private boolean emailVallido(String email) {
 		return email.contains("@");
@@ -135,26 +157,11 @@ public class Usuario {
 		return nombre;
 	}
 
-	/**
-	 * Setter de nombre persiste el nombre en la BD.
-	 * 
-	 * @param nombre
-	 * @throws SQLException
-	 */
-	public void setNombre(String nombre) throws SQLException {
 
-		// Primero intentamos el update, si no funciona en BD no se hace en java.
-		Statement smt = UtilDB.conectarDB();
-		// La consulta se debe de hacer modificando la variable especifica del setter y
-		// haciendolo
-		// solo donde la PK coincida.
-
-		if (smt.executeUpdate("update usuario set nombre='" + nombre + "' where nombre='" + this.nombre + "'") > 0) {
+	public void setNombre(String nombre) {	
 			this.nombre = nombre;
 		}
-		UtilDB.desconectarBD();
-
-	}
+		
 
 	public String getEmail() {
 		return email;
@@ -164,14 +171,7 @@ public class Usuario {
 		if (!this.emailVallido(email)) {
 			throw new EmailIncorrectoException("El email tiene que tener @.");
 		}
-
-		Statement smt = UtilDB.conectarDB();
-
-		if (smt.executeUpdate("update usuario set email='" + email + "' where nombre='" + this.nombre + "'") > 0) {
 			this.email = email;
-		}
-		UtilDB.desconectarBD();
-
 	}
 
 	public String getContraseña() {
@@ -182,14 +182,7 @@ public class Usuario {
 		if (contraseña.isBlank()) {
 			throw new ContraseñaIncorrectaException("La contraseña no puede estar vacia.");
 		}
-		Statement smt = UtilDB.conectarDB();
-
-		if (smt.executeUpdate(
-				"update usuario set contrasenia='" + contraseña + "' where nombre='" + this.nombre + "'") > 0) {
 			this.contraseña = contraseña;
-		}
-		UtilDB.desconectarBD();
-
 	}
 
 	/**
@@ -197,8 +190,7 @@ public class Usuario {
 	 * haya desfase objeto-relacional. En caso de que no se pueda borrar de base de
 	 * datos, el objeto java se queda como estaba.
 	 * 
-	 * @param u el usuario a eliminar.
-	 * @return true si se ha eliminado, false si no se ha podido
+	 * @return Si no hay usuarios en la tabla, va a devolver un arraylist vacio distintas.
 	 */
 
 
